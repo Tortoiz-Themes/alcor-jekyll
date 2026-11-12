@@ -1,0 +1,14 @@
+{%- comment -%} The theme's only script: the light/dark switch, and closing the phone menu after a tap. Under 1 KB. {%- endcomment -%}
+<script>
+document.querySelectorAll('.site-menu__panel a').forEach(function (a) {
+  a.addEventListener('click', function () { a.closest('details').open = false; });
+});
+document.querySelectorAll('[data-theme-switch]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var r = document.documentElement;
+    var dark = r.dataset.theme ? r.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    r.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('alcor-theme', r.dataset.theme); } catch (e) {}
+  });
+});
+</script>

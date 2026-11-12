@@ -1,0 +1,36 @@
+{%- comment -%}
+  About: who you are, in your own words.
+  Variant:
+    split  a photo beside the text, with a short list of facts underneath. Without a photo the text takes the full width.
+  Fields: label, heading, text (Markdown, a few short paragraphs), image { src, alt, width, height, position }
+          or art (an illustration from _includes/art/, with art_label),
+          facts [{ label, value }], actions (for example a link to your CV)
+{%- endcomment -%}
+{%- assign s = include.section -%}
+<section {% include section-attrs.html section=s default='split' prefix=include.prefix %}>
+  <div class="wrap">
+    {% include section-head.html section=s num=include.num %}
+    <div class="about__grid{% unless s.image or s.art %} about__grid--text{% endunless %}">
+      {%- if s.image or s.art %}
+      <figure class="about__media{% if s.art %} about__media--art{% endif %}">
+        {%- if s.image %}
+        {% include image.html image=s.image sizes="(min-width: 52em) 35vw, 100vw" %}
+        {%- else %}
+        {% include art.html name=s.art label=s.art_label %}
+        {%- endif %}
+      </figure>
+      {%- endif %}
+      <div class="about__body">
+        <div class="about__text">{{ s.text | markdownify }}</div>
+        {%- if s.facts.size > 0 %}
+        <dl class="about__facts">
+          {%- for f in s.facts %}
+          <div><dt>{{ f.label }}</dt><dd>{{ f.value | markdownify | remove: '<p>' | remove: '</p>' | strip }}</dd></div>
+          {%- endfor %}
+        </dl>
+        {%- endif %}
+        {% include actions.html actions=s.actions %}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+{%- comment -%}
+  Process: how working together goes, in 3–5 numbered steps on a rule.
+  Fields: label, heading, intro, steps [{ title, text, time }], actions
+{%- endcomment -%}
+{%- assign s = include.section -%}
+<section {% include section-attrs.html section=s default='steps' prefix=include.prefix %}>
+  <div class="wrap">
+    {% include section-head.html section=s num=include.num %}
+    <ol class="process__steps" role="list">
+      {%- for step in s.steps %}
+      <li class="process__step">
+        <span class="process__num" aria-hidden="true">{{ forloop.index }}</span>
+        <h3 class="process__title">{{ step.title }}</h3>
+        {%- if step.time %}<p class="process__time">{{ step.time }}</p>{% endif %}
+        <div class="process__text">{{ step.text | markdownify }}</div>
+      </li>
+      {%- endfor %}
+    </ol>
+    {% include actions.html actions=s.actions %}
+  </div>
+</section>

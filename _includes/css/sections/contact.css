@@ -1,0 +1,19 @@
+/* Contact: details on the left, the form on the right. */
+@layer sections {
+  .contact__grid { display: grid; gap: var(--space-xl); }
+  .contact__side .sec-head { margin-bottom: var(--space-l); }
+  .contact__ways { list-style: none; padding: 0; border-bottom: var(--hairline); }
+  .contact__ways li { display: grid; grid-template-columns: 6rem 1fr; gap: var(--space-s); align-items: baseline; padding-block: var(--space-2xs); border-top: var(--hairline); }
+  .contact__ways a { overflow-wrap: anywhere; }
+  .contact__key { font-size: var(--step--2); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--ink-subtle); }
+
+  .contact__form { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: var(--space-s); align-content: start; }
+  .contact__wide { grid-column: 1 / -1; }
+  .contact__send { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-s); }
+  .contact__note { font-size: var(--step--1); color: var(--ink-muted); }
+
+  @media (min-width: 60em) {
+    .contact__grid { grid-template-columns: 1fr 1.2fr; gap: var(--space-2xl); }
+    .contact__form { padding-top: var(--space-2xs); }
+  }
+}

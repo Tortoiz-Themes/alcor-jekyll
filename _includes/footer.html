@@ -1,0 +1,24 @@
+{%- comment -%}
+  Site footer: a closing line, your profiles, copyright and the theme credit.
+  The credit link helps other people find this free theme. Hide it with `credit: false` under `alcor:` in _config.yml.
+{%- endcomment -%}
+{%- assign name = site.alcor.name | default: site.title -%}
+{%- assign f = site.alcor.footer -%}
+<footer class="site-footer">
+  <div class="wrap">
+    {%- if f.text %}
+    <p class="site-footer__line display">{{ f.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+    {%- endif %}
+    <div class="site-footer__row">
+      <p>&copy; {{ site.time | date: '%Y' }} {{ name }}</p>
+      {%- if site.alcor.social.size > 0 %}
+      <ul class="site-footer__social" role="list">
+        {%- for link in site.alcor.social %}<li><a href="{{ link.url }}" rel="noopener me">{{ link.label }}</a></li>{% endfor %}
+      </ul>
+      {%- endif %}
+      {%- unless site.alcor.credit == false %}
+      <p class="site-footer__credit">{{ site.data.strings.credit | default: 'Theme by' }} <a href="https://tortoizthemes.com/products/alcor/">Tortoiz Themes</a></p>
+      {%- endunless %}
+    </div>
+  </div>
+</footer>

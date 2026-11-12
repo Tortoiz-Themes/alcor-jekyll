@@ -1,0 +1,10 @@
+{%- comment -%} Buttons: a list of { label, url, style: primary | outline | link }. The first defaults to primary. {%- endcomment -%}
+{%- if include.actions.size > 0 %}
+<p class="actions">
+  {%- for a in include.actions %}
+  {%- assign st = a.style | default: 'outline' -%}{%- if forloop.first and a.style == nil -%}{%- assign st = 'primary' -%}{%- endif -%}
+  {%- include url.html url=a.url %}
+  <a class="{% if st == 'link' %}link-arrow{% else %}btn btn--{{ st }}{% endif %}" href="{{ href }}"{% if a.url contains '://' %} rel="noopener"{% endif %}>{{ a.label }}</a>
+  {%- endfor %}
+</p>
+{%- endif %}

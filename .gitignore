@@ -1,0 +1,23 @@
+_site/
+.jekyll-cache/
+.sass-cache/
+vendor/
+.bundle/
+Gemfile.lock
+node_modules/
+*.gem
+_site-file/
+
+# Our own tools: kept on this machine, never in the public theme repo.
+# The /blocks/ catalogue and its examples
+blocks.html
+_includes/css/blocks.css
+_data/blocks.yml
+_data/examples/
+# The /style-guide/ page and the palette generator that feeds it
+style-guide.html
+_includes/css/style-guide.css
+_data/palette.json
+scripts/
+# Phase notes and screenshots
+research/

@@ -1,0 +1,68 @@
+/* Alcor scales: type, space, radius, shadow, motion and layout.
+   Type and space are fluid between a 360px and a 1280px screen. */
+@layer tokens {
+  :root {
+    /* Fonts. Instrument Serif is the only web font; body text uses the system font. */
+    --font-display: 'Instrument Serif', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    --font-body: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, Consolas, monospace;
+
+    /* Type scale. Steps 3 and up are for the display serif, which reads small, so they run large. */
+    --step--2: clamp(0.75rem, 0.7304rem + 0.0870vw, 0.8rem);
+    --step--1: clamp(0.875rem, 0.8652rem + 0.0435vw, 0.9rem);
+    --step-0: clamp(1rem, 0.9755rem + 0.1087vw, 1.0625rem);
+    --step-1: clamp(1.125rem, 1.0761rem + 0.2174vw, 1.25rem);
+    --step-2: clamp(1.35rem, 1.2152rem + 0.5978vw, 1.7rem);
+    --step-3: clamp(1.7rem, 1.4304rem + 1.1957vw, 2.4rem);
+    --step-4: clamp(2.1rem, 1.6378rem + 2.0543vw, 3.3rem);
+    --step-5: clamp(2.6rem, 1.8870rem + 3.1739vw, 4.45rem);
+    --step-6: clamp(3rem, 1.9989rem + 4.4565vw, 5.6rem);
+
+    --leading-tight: 1.02;
+    --leading-snug: 1.2;
+    --leading-body: 1.65;
+    --tracking-display: -0.01em;
+    --tracking-label: 0.08em;
+    --weight-body: 400;
+    --weight-strong: 600;
+
+    /* Space */
+    --space-3xs: clamp(0.25rem, 0.2304rem + 0.0870vw, 0.3rem);
+    --space-2xs: clamp(0.5rem, 0.4609rem + 0.1739vw, 0.6rem);
+    --space-xs: clamp(0.75rem, 0.6913rem + 0.2609vw, 0.9rem);
+    --space-s: clamp(1rem, 0.9217rem + 0.3478vw, 1.2rem);
+    --space-m: clamp(1.5rem, 1.3826rem + 0.5217vw, 1.8rem);
+    --space-l: clamp(2rem, 1.8043rem + 0.8696vw, 2.5rem);
+    --space-xl: clamp(3rem, 2.6087rem + 1.7391vw, 4rem);
+    --space-2xl: clamp(4rem, 3.2174rem + 3.4783vw, 6rem);
+    --space-3xl: clamp(5rem, 3.6304rem + 6.0870vw, 8.5rem);
+    --section-space: var(--space-2xl);
+
+    /* Radius: nearly square, like print. Buttons and badges are the one rounded shape. */
+    --radius-xs: 2px;
+    --radius-s: 4px;
+    --radius-m: 8px;
+    --radius-pill: 999px;
+
+    /* Shadows: barely used; cards sit on hairlines instead. */
+    --shadow-s: 0 1px 2px var(--shadow-near);
+    --shadow-m: 0 2px 4px var(--shadow-near), 0 12px 28px -8px var(--shadow-far);
+
+    /* Lines */
+    --hairline: 1px solid var(--line);
+    --rule: 1px solid var(--line-strong);
+
+    /* Motion. Everything stops under prefers-reduced-motion (base.css). */
+    --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+    --dur-fast: 150ms;
+    --dur: 250ms;
+
+    /* Layout */
+    --wrap: 1160px;
+    --wrap-narrow: 720px;
+    --gutter: clamp(1rem, 4vw, 2.5rem);
+    --header-height: 4.25rem;
+    --tap: 2.75rem; /* minimum touch target */
+    --z-header: 50;
+  }
+}

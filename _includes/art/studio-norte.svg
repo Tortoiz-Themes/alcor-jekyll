@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Studio Norte: a quiet building elevation with a measuring line, and the practice's new business card. -->
+  <rect class="art-bg" width="400" height="300"/>
+  <path class="art-line" stroke-width="2.5" d="M40 252h320"/>
+
+  <!-- dimension line -->
+  <path class="art-line-1" stroke-width="2.5" d="M84 86h176M84 80v12M260 80v12"/>
+
+  <!-- building -->
+  <rect class="art-fig" x="84" y="104" width="176" height="148"/>
+  <path class="art-line" stroke-width="3" d="M84 252V104h176v148M78 104h188"/>
+  <rect class="art-1s" x="102" y="124" width="30" height="34"/>
+  <rect class="art-1s" x="157" y="124" width="30" height="34"/>
+  <rect class="art-1s" x="212" y="124" width="30" height="34"/>
+  <rect class="art-1s" x="102" y="180" width="30" height="34"/>
+  <path class="art-line" stroke-width="2.5" d="M102 124h30v34h-30zM157 124h30v34h-30zM212 124h30v34h-30zM102 180h30v34h-30z"/>
+  <path class="art-2" d="M152 252v-46a20 20 0 0 1 40 0v46z"/>
+  <path class="art-line" stroke-width="3" d="M152 252v-46a20 20 0 0 1 40 0v46"/>
+
+  <!-- business card -->
+  <g transform="rotate(-7 300 206)">
+    <rect class="art-fig" x="244" y="174" width="116" height="66" rx="3"/>
+    <rect class="art-line" stroke-width="3" x="244" y="174" width="116" height="66" rx="3"/>
+    <path class="art-line" stroke-width="3.5" d="M260 220v-28l18 28v-28"/>
+    <path class="art-line" stroke-width="2.5" d="M292 196h52M292 208h38M292 220h46"/>
+  </g>
+</svg>

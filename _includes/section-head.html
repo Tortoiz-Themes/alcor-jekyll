@@ -1,0 +1,13 @@
+{%- comment -%} Section label ("01 — Services"), heading and intro. Used by every section except hero. {%- endcomment -%}
+{%- assign s = include.section -%}
+<header class="sec-head{% if s.align == 'center' %} sec-head--center{% endif %}">
+  {%- if s.label %}
+  <p class="label"><span class="label__num">{{ include.num }}</span> {{ s.label }}</p>
+  {%- endif %}
+  {%- if s.heading %}
+  <h2 class="sec-head__title">{{ s.heading | markdownify | remove: '<p>' | remove: '</p>' | strip }}</h2>
+  {%- endif %}
+  {%- if s.intro %}
+  <div class="sec-head__intro lede">{{ s.intro | markdownify }}</div>
+  {%- endif %}
+</header>

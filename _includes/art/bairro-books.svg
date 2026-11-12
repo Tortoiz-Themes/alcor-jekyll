@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Bairro Books: the bookshop's website in a browser window, with a stack of real books in front. -->
+  <rect class="art-bg" width="400" height="300"/>
+  <ellipse class="art-shade" cx="300" cy="256" rx="70" ry="7"/>
+
+  <!-- browser -->
+  <rect class="art-fig" x="52" y="48" width="236" height="176" rx="6"/>
+  <rect class="art-line" stroke-width="3" x="52" y="48" width="236" height="176" rx="6"/>
+  <path class="art-line" stroke-width="3" d="M52 72h236"/>
+  <circle class="art-1" cx="68" cy="60" r="4"/><circle class="art-3" cx="81" cy="60" r="4"/><circle class="art-2" cx="94" cy="60" r="4"/>
+  <rect class="art-ink" x="70" y="88" width="104" height="10" rx="2"/>
+  <path class="art-line" stroke-width="2.5" d="M70 110h150M70 121h118"/>
+  <rect class="art-1" x="70" y="140" width="42" height="62" rx="2"/>
+  <rect class="art-2" x="122" y="140" width="42" height="62" rx="2"/>
+  <rect class="art-3" x="174" y="140" width="42" height="62" rx="2"/>
+  <path class="art-line" stroke-width="2.5" d="M70 140h42v62H70zM122 140h42v62h-42zM174 140h42v62h-42z"/>
+  <path class="art-line-fig" stroke-width="2.5" d="M80 156h22M132 156h22M184 156h22"/>
+  <!-- an events list on the right of the page -->
+  <path class="art-line" stroke-width="2.5" d="M232 144h40M232 158h32M232 172h40M232 186h26"/>
+
+  <!-- books on the table -->
+  <rect class="art-2" x="252" y="232" width="100" height="20" rx="2"/>
+  <rect class="art-1" x="262" y="212" width="84" height="20" rx="2"/>
+  <rect class="art-3" x="256" y="192" width="92" height="20" rx="2"/>
+  <path class="art-line" stroke-width="3" d="M252 232h100v20H252zM262 212h84v20h-84zM256 192h92v20h-92z"/>
+  <path class="art-line" stroke-width="2.5" d="M264 242h40M272 222h30M266 202h36"/>
+</svg>

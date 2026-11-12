@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Lumen Notes: the note-taking app on a phone, a light bulb for the name, and a sticky note. -->
+  <rect class="art-bg" width="400" height="300"/>
+  <ellipse class="art-shade" cx="206" cy="266" rx="74" ry="7"/>
+
+  <!-- light bulb -->
+  <path class="art-line" stroke-width="3" d="M96 52v-14M58 66l-10-10M134 66l10-10M44 104H30"/>
+  <circle class="art-3" cx="96" cy="104" r="30"/>
+  <circle class="art-line" stroke-width="3" cx="96" cy="104" r="30"/>
+  <path class="art-line" stroke-width="2.5" d="M88 118v-14l8 8 8-8v14"/>
+  <rect class="art-ink" x="84" y="134" width="24" height="16" rx="3"/>
+
+  <!-- phone -->
+  <rect class="art-ink" x="152" y="36" width="108" height="222" rx="16"/>
+  <rect class="art-fig" x="160" y="48" width="92" height="198" rx="10"/>
+  <rect class="art-ink" x="172" y="64" width="46" height="8" rx="2"/>
+  <rect class="art-bg" x="172" y="84" width="68" height="44" rx="4"/>
+  <path class="art-line" stroke-width="2.5" d="M180 98h50M180 110h38"/>
+  <rect class="art-3" x="172" y="140" width="56" height="10" rx="2"/>
+  <path class="art-line" stroke-width="2.5" d="M172 166h66M172 180h52"/>
+  <rect class="art-line" stroke-width="2.5" x="172" y="198" width="12" height="12" rx="2"/>
+  <path class="art-line-1" stroke-width="3" d="M174 204l4 4 8-10"/>
+  <path class="art-line" stroke-width="2.5" d="M192 204h40"/>
+  <rect class="art-line" stroke-width="2.5" x="172" y="220" width="12" height="12" rx="2"/>
+  <path class="art-line" stroke-width="2.5" d="M192 226h30"/>
+
+  <!-- sticky note -->
+  <g transform="rotate(8 318 150)">
+    <rect class="art-1" x="286" y="118" width="64" height="64" rx="2"/>
+    <path class="art-line-fig" stroke-width="3" d="M298 138h40M298 150h32M298 162h36"/>
+  </g>
+</svg>

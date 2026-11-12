@@ -1,0 +1,32 @@
+{%- comment -%}
+  Site header: your name, links to the sections that set `nav:`, the light/dark switch and one button.
+  On phones the links fold into a <details> menu, so no script is needed.
+{%- endcomment -%}
+{%- assign name = site.alcor.name | default: site.title -%}
+{%- assign cta = site.alcor.header_action -%}
+{%- capture links -%}
+  {%- for s in page.sections -%}
+    {%- if s.nav and s.hidden != true -%}<li><a href="#{{ s.id | default: s.type }}">{{ s.nav }}</a></li>{%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="site-header__name" href="{{ '/' | relative_url }}">{{ name }}</a>
+    {%- if links != '' %}
+    <nav class="site-nav" aria-label="{{ site.data.strings.nav | default: 'Main' }}"><ul role="list">{{ links }}</ul></nav>
+    {%- endif %}
+    <div class="site-header__end">
+      {% include theme-switch.html %}
+      {%- if cta != false %}
+      {%- include url.html url=cta.url %}
+      <a class="btn btn--outline btn--small site-header__cta" href="{{ href | default: '#contact' }}">{{ cta.label | default: 'Get in touch' }}</a>
+      {%- endif %}
+      {%- if links != '' %}
+      <details class="site-menu">
+        <summary class="site-menu__button">{{ site.data.strings.menu | default: 'Menu' }}</summary>
+        <nav class="site-menu__panel" aria-label="{{ site.data.strings.nav | default: 'Main' }}"><ul role="list">{{ links }}</ul></nav>
+      </details>
+      {%- endif %}
+    </div>
+  </div>
+</header>

@@ -1,0 +1,65 @@
+/* Colour scales (50 lightest to 950 darkest). Sections never use these directly: they use the names in theme.css, so to re-colour the theme, change the values there. */
+@layer tokens {
+  :root {
+    /* vermilion: Brand: links, buttons, the hero accent */
+    --vermilion-50: #fef4f1;
+    --vermilion-100: #fee5de;
+    --vermilion-200: #ffccbd;
+    --vermilion-300: #fea890;
+    --vermilion-400: #f87a59;
+    --vermilion-500: #de5c39;
+    --vermilion-600: #c0401c;
+    --vermilion-700: #9f2d07;
+    --vermilion-800: #7c1e00;
+    --vermilion-900: #5a1401;
+    --vermilion-950: #3a0900;
+    /* moss: Accent: "available" status, success */
+    --moss-50: #f4f9f1;
+    --moss-100: #e5efe0;
+    --moss-200: #cee0c5;
+    --moss-300: #b1caa3;
+    --moss-400: #92af82;
+    --moss-500: #779567;
+    --moss-600: #5e7c4f;
+    --moss-700: #4a643c;
+    --moss-800: #364c2a;
+    --moss-900: #24361a;
+    --moss-950: #14210d;
+    /* ochre: Highlight: marker behind text, always dark text on it */
+    --ochre-50: #fcf6e9;
+    --ochre-100: #f6ead1;
+    --ochre-200: #edd6a8;
+    --ochre-300: #ddbc77;
+    --ochre-400: #c59f48;
+    --ochre-500: #ac8420;
+    --ochre-600: #8f6b02;
+    --ochre-700: #735600;
+    --ochre-800: #584103;
+    --ochre-900: #3f2d02;
+    --ochre-950: #271b01;
+    /* paper: Warm neutrals: paper, ink, lines */
+    --paper-50: #f7f7f5;
+    --paper-100: #edebe8;
+    --paper-200: #dcd9d3;
+    --paper-300: #c5c0b9;
+    --paper-400: #a9a49b;
+    --paper-500: #8f8a81;
+    --paper-600: #767169;
+    --paper-700: #5f5a53;
+    --paper-800: #48443e;
+    --paper-900: #33302b;
+    --paper-950: #1f1d19;
+    /* red: Errors only */
+    --red-50: #fef4f3;
+    --red-100: #ffe4e2;
+    --red-200: #fecbc8;
+    --red-300: #fea5a2;
+    --red-400: #fd7273;
+    --red-500: #e35257;
+    --red-600: #c5353e;
+    --red-700: #a3212d;
+    --red-800: #820d1d;
+    --red-900: #600110;
+    --red-950: #3e0007;
+  }
+}

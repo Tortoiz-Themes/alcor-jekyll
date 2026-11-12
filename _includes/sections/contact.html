@@ -1,0 +1,72 @@
+{%- comment -%}
+  Contact: the form, your email, an optional "book a call" link and your profiles.
+  The form needs no JavaScript. Pick the service in _config.yml under alcor.form:
+    provider: web3forms   with access_key (free key from web3forms.com)
+    provider: formspree   with endpoint (https://formspree.io/f/your-id)
+    provider: demo        sends nothing and goes straight to the thank-you page (for the demo site)
+  Fields: label, heading, intro, email, booking { label, url }, budgets [] (adds a budget menu), note
+{%- endcomment -%}
+{%- assign s = include.section -%}
+{%- assign form = site.alcor.form -%}
+{%- assign email = s.email | default: site.alcor.email -%}
+{%- assign thanks = '/thank-you/' | absolute_url -%}
+{%- assign fid = s.id | default: 'contact' -%}{%- if include.prefix %}{% assign fid = include.prefix | append: '-' | append: fid %}{% endif -%}
+<section {% include section-attrs.html section=s default='form' prefix=include.prefix %}>
+  <div class="wrap contact__grid">
+    <div class="contact__side">
+      {% include section-head.html section=s num=include.num %}
+      <ul class="contact__ways" role="list">
+        {%- if email %}
+        <li><span class="contact__key">{{ site.data.strings.email | default: 'Email' }}</span> <a href="mailto:{{ email }}">{{ email }}</a></li>
+        {%- endif %}
+        {%- if s.booking.url %}
+        <li><span class="contact__key">{{ site.data.strings.call | default: 'Call' }}</span> <a href="{{ s.booking.url }}" rel="noopener">{{ s.booking.label | default: 'Book a 20-minute call' }}</a></li>
+        {%- endif %}
+        {%- for link in site.alcor.social %}
+        <li><span class="contact__key">{{ link.label }}</span> <a href="{{ link.url }}" rel="noopener me">{{ link.handle | default: link.url | remove: 'https://' | remove: 'www.' }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+
+    {%- if form.provider == 'web3forms' %}{% assign action = 'https://api.web3forms.com/submit' %}
+    {%- elsif form.provider == 'formspree' %}{% assign action = form.endpoint %}
+    {%- else %}{% assign action = '/thank-you/' | relative_url %}{% endif %}
+    {%- comment -%} Demo mode: fields have no names, so nothing a visitor types is sent or put in the address bar. {%- endcomment -%}
+    {%- assign live = false -%}{%- if form.provider == 'web3forms' or form.provider == 'formspree' -%}{%- assign live = true -%}{%- endif %}
+    <form class="contact__form" action="{{ action }}" method="{% if form.provider == 'web3forms' or form.provider == 'formspree' %}post{% else %}get{% endif %}">
+      {%- if form.provider == 'web3forms' %}
+      <input type="hidden" name="access_key" value="{{ form.access_key }}">
+      <input type="hidden" name="subject" value="{{ form.subject | default: 'New message from your website' }}">
+      <input type="hidden" name="redirect" value="{{ thanks }}">
+      <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+      {%- elsif form.provider == 'formspree' %}
+      <input type="hidden" name="_subject" value="{{ form.subject | default: 'New message from your website' }}">
+      <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+      {%- endif %}
+      <div class="field">
+        <label for="{{ fid }}-name">{{ site.data.strings.name | default: 'Your name' }}</label>
+        <input class="input" id="{{ fid }}-name" {% if live %}name="name" {% endif %}autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="{{ fid }}-email">{{ site.data.strings.email | default: 'Email' }}</label>
+        <input class="input" id="{{ fid }}-email" type="email" {% if live %}name="email" {% endif %}autocomplete="email" required>
+      </div>
+      {%- if s.budgets.size > 0 %}
+      <div class="field contact__wide">
+        <label for="{{ fid }}-budget">{{ site.data.strings.budget | default: 'Budget' }}</label>
+        <select class="select" id="{{ fid }}-budget"{% if live %} name="budget"{% endif %}>
+          {%- for b in s.budgets %}<option>{{ b }}</option>{% endfor %}
+        </select>
+      </div>
+      {%- endif %}
+      <div class="field contact__wide">
+        <label for="{{ fid }}-message">{{ site.data.strings.message | default: 'About your project' }}</label>
+        <textarea class="textarea" id="{{ fid }}-message"{% if live %} name="message"{% endif %} rows="6" required></textarea>
+      </div>
+      <div class="contact__wide contact__send">
+        <button class="btn btn--primary" type="submit">{{ site.data.strings.send | default: 'Send message' }}</button>
+        {%- if s.note %}<p class="contact__note">{{ s.note }}</p>{% endif %}
+      </div>
+    </form>
+  </div>
+</section>

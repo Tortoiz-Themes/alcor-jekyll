@@ -1,0 +1,26 @@
+{%- comment -%}
+  Tells search engines who the site is about. Home page only.
+  Set alcor.schema_type to ProfessionalService if you are a studio rather than one person.
+{%- endcomment -%}
+{%- assign a = site.alcor -%}
+{%- assign kind = a.schema_type | default: 'Person' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": {{ kind | jsonify }},
+  "name": {{ a.name | default: site.title | jsonify }},
+  {%- if a.role %}
+  {% if kind == 'Person' %}"jobTitle"{% else %}"description"{% endif %}: {{ a.role | jsonify }},
+  {%- endif %}
+  {%- if a.email %}
+  "email": {{ a.email | prepend: 'mailto:' | jsonify }},
+  {%- endif %}
+  {%- if a.location %}
+  "address": { "@type": "PostalAddress", "addressLocality": {{ a.location | jsonify }} },
+  {%- endif %}
+  {%- if a.social.size > 0 %}
+  "sameAs": {{ a.social | map: 'url' | jsonify }},
+  {%- endif %}
+  "url": {{ '/' | absolute_url | jsonify }}
+}
+</script>

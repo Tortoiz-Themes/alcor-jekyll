@@ -1,0 +1,15 @@
+/* Instrument Serif (OFL, assets/fonts/OFL.txt). Latin subset, about 21 KB; the italic loads only when a page uses it. */
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('{{ "/assets/fonts/instrument-serif-400.woff2" | relative_url }}') format('woff2');
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('{{ "/assets/fonts/instrument-serif-400-italic.woff2" | relative_url }}') format('woff2');
+}

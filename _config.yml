@@ -1,0 +1,64 @@
+# Alcor demo site settings. Your own site sets these in its own _config.yml.
+title: Ana Ruiz
+description: Independent brand and web designer in Lisbon.
+lang: en
+url: "https://alcor.tortoizthemes.com"
+baseurl: ""
+
+# Everything about you that appears in more than one place.
+alcor:
+  name: Ana Ruiz
+  role: Brand and web designer
+  location: Lisbon, Portugal
+  email: hello@anaruiz.example
+  # Person (one person) or ProfessionalService (a studio). Tells search engines who the site is about.
+  schema_type: Person
+  # The badge in the hero. state: available | booked | closed
+  availability:
+    state: available
+    text: Taking new projects from January
+  # The button at the right of the header. Set to false to hide it.
+  header_action:
+    label: Get in touch
+    url: "#contact"
+  social:
+    - label: LinkedIn
+      url: https://www.linkedin.com/
+      handle: in/anaruiz
+    - label: Instagram
+      url: https://www.instagram.com/
+      handle: "@anaruiz.studio"
+    - label: Are.na
+      url: https://www.are.na/
+      handle: are.na/ana-ruiz
+  # The contact form. provider: web3forms (needs access_key) | formspree (needs endpoint) | demo (sends nothing)
+  form:
+    provider: demo
+    subject: New message from anaruiz.example
+  footer:
+    text: Good work, *quietly* done.
+  # "Theme by Tortoiz Themes" in the footer. It helps other people find this free theme; set to false to hide it.
+  credit: true
+
+# The picture shown when your page is shared on social media (1200 × 630).
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/og.png
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - research
+  - scripts
+  - vendor
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - "*.gemspec"
+  - README.md
+  - LICENSE
+  - screenshot.png

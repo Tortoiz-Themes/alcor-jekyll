@@ -1,0 +1,15 @@
+---
+layout: default
+title: Thank you
+description: Your message is on its way.
+permalink: /thank-you/
+sitemap: false
+noindex: true
+---
+{% include header.html %}
+<main id="main" class="section wrap-narrow thanks">
+  <h1>Thank <em>you</em>.</h1>
+  <p class="lede" style="margin-top: var(--space-s)">{{ site.data.strings.thanks | default: 'Your message is on its way. I reply within two working days.' }}</p>
+  <p class="actions"><a class="btn btn--outline" href="{{ '/' | relative_url }}">Back to the home page</a></p>
+</main>
+{% include footer.html %}

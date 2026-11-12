@@ -1,0 +1,16 @@
+{%- comment -%}
+  An illustration from _includes/art/<name>.svg, inlined so it takes the theme's colours and flips in dark mode.
+  The drawings use only these classes, never hex colours:
+    art-bg    soft background shape (sand)     art-1   brand (vermilion)    art-1s  brand tint
+    art-2     accent (moss)                    art-3   highlight (ochre)
+    art-ink   solid ink                        art-fig figures and objects (paper)
+    art-line  ink outlines                     art-line-1 vermilion strokes   art-shade a quiet shadow
+  label: describe the picture for screen readers. Leave it out when the picture is only decoration.
+{%- endcomment -%}
+{%- capture svg -%}{% include art/{{ include.name }}.svg %}{%- endcapture -%}
+{%- if include.label -%}
+{%- capture a11y -%}<svg class="art{% if include.class %} {{ include.class }}{% endif %}" role="img" aria-label="{{ include.label | escape }}" focusable="false" {% endcapture -%}
+{%- else -%}
+{%- capture a11y -%}<svg class="art{% if include.class %} {{ include.class }}{% endif %}" aria-hidden="true" focusable="false" {% endcapture -%}
+{%- endif -%}
+{{ svg | replace_first: '<svg ', a11y }}

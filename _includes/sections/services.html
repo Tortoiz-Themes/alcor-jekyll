@@ -1,0 +1,29 @@
+{%- comment -%}
+  Services: what you offer.
+  Variants:
+    list   numbered rows on rules, like a printed menu. Best for 3–6 services with a line each.
+    cards  a grid of plain cards. Best when each service has a longer description or tags.
+  Fields: label, heading, intro, items [{ title, text, price, tags [] }], actions
+{%- endcomment -%}
+{%- assign s = include.section -%}
+<section {% include section-attrs.html section=s default='list' prefix=include.prefix %}>
+  <div class="wrap">
+    {% include section-head.html section=s num=include.num %}
+    <ol class="services__items" role="list">
+      {%- for item in s.items %}
+      <li class="services__item">
+        <span class="services__num" aria-hidden="true">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+        <h3 class="services__title">{{ item.title }}</h3>
+        <div class="services__text">
+          {{ item.text | markdownify }}
+          {%- if item.tags.size > 0 %}
+          <p class="services__tags">{% for t in item.tags %}<span class="tag">{{ t }}</span> {% endfor %}</p>
+          {%- endif %}
+        </div>
+        {%- if item.price %}<p class="services__price">{{ item.price }}</p>{% endif %}
+      </li>
+      {%- endfor %}
+    </ol>
+    {% include actions.html actions=s.actions %}
+  </div>
+</section>

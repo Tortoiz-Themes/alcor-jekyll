@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Crumb & Co.: a paper bakery bag with a round label, and a scored loaf on a board. -->
+  <rect class="art-bg" width="400" height="300"/>
+  <ellipse class="art-shade" cx="214" cy="262" rx="160" ry="8"/>
+
+  <!-- bag -->
+  <path class="art-1s" d="M100 96h112l12 164H88z"/>
+  <path class="art-line" stroke-width="3" d="M100 96h112l12 164H88z"/>
+  <path class="art-line" stroke-width="3" d="M100 96l7-10 7 10 7-10 7 10 7-10 7 10 7-10 7 10 7-10 7 10 7-10 7 10 7-10 7 10 7-10 7 10"/>
+  <circle class="art-1" cx="156" cy="176" r="34"/>
+  <circle class="art-line-fig" stroke-width="2.5" cx="156" cy="176" r="26"/>
+  <path class="art-line-fig" stroke-width="3" d="M156 196v-36M156 170l-9-8M156 170l9-8M156 182l-9-8M156 182l9-8"/>
+
+  <!-- board and loaf -->
+  <rect class="art-fig" x="222" y="248" width="150" height="12" rx="3"/>
+  <rect class="art-line" stroke-width="3" x="222" y="248" width="150" height="12" rx="3"/>
+  <path class="art-3" d="M236 248c0-42 26-64 60-64s60 22 60 64z"/>
+  <path class="art-line" stroke-width="3" d="M236 248c0-42 26-64 60-64s60 22 60 64z"/>
+  <path class="art-line" stroke-width="3" d="M262 212l14 14M290 200l14 16M318 206l12 14"/>
+  <circle class="art-ink" cx="352" cy="94" r="3"/>
+  <circle class="art-ink" cx="330" cy="70" r="2"/>
+  <circle class="art-ink" cx="364" cy="58" r="2.5"/>
+</svg>

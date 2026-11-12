@@ -1,0 +1,12 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% include theme-init.html %}
+<link rel="preload" href="{{ '/assets/fonts/instrument-serif-400.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="{{ site.favicon | default: '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+{% seo %}
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f6f2ea" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161512" media="(prefers-color-scheme: dark)">
+{% if page.noindex %}<meta name="robots" content="noindex">{% endif %}
+{% if page.layout == 'home' %}{% include schema.html %}{% endif %}
+{% include styles.html %}

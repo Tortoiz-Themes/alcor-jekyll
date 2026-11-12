@@ -1,0 +1,53 @@
+{%- comment -%}
+  Selected work: two to six projects.
+  Variants:
+    cards  big cards, two across, with a photo or a drawing (4:3). With neither, a coloured panel shows the title.
+    list   a compact index: year, project, client, role. Good for a long list or no images.
+  Fields: label, heading, intro, actions,
+          items [{ title, client, year, role, text, url,
+                   image { src, alt, width, height } or art (a drawing from _includes/art/, 400 × 300),
+                   tone: sand | ink | vermilion (the panel colour when there's no picture) }]
+{%- endcomment -%}
+{%- assign s = include.section -%}
+<section {% include section-attrs.html section=s default='cards' prefix=include.prefix %}>
+  <div class="wrap">
+    {% include section-head.html section=s num=include.num %}
+    {%- if s.variant == 'list' %}
+    <ul class="work__list" role="list">
+      {%- for item in s.items %}
+      <li class="work__row">
+        <span class="work__year">{{ item.year }}</span>
+        <h3 class="work__title">{% if item.url %}{% include url.html url=item.url %}<a href="{{ href }}"{% if item.url contains '://' %} rel="noopener"{% endif %}>{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3>
+        <span class="work__client">{{ item.client }}</span>
+        <span class="work__role">{{ item.role }}</span>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- else %}
+    <ul class="work__cards" role="list">
+      {%- for item in s.items %}
+      <li class="work__card">
+        <div class="work__media{% unless item.image or item.art %} work__media--panel tone-{{ item.tone | default: 'sand' }}{% endunless %}">
+          {%- if item.image -%}
+          {% include image.html image=item.image sizes="(min-width: 50em) 50vw, 100vw" %}
+          {%- elsif item.art -%}
+          {% include art.html name=item.art label=item.art_label %}
+          {%- else -%}
+          <span class="work__panel-title" aria-hidden="true">{{ item.title }}</span>
+          {%- endif -%}
+        </div>
+        <div class="work__meta">
+          <h3 class="work__title">{% if item.url %}{% include url.html url=item.url %}<a href="{{ href }}"{% if item.url contains '://' %} rel="noopener"{% endif %}>{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h3>
+          <span class="work__year">{{ item.year }}</span>
+        </div>
+        {%- if item.client or item.role %}
+        <p class="work__sub">{{ item.client }}{% if item.client and item.role %} · {% endif %}{{ item.role }}</p>
+        {%- endif %}
+        {%- if item.text %}<div class="work__text">{{ item.text | markdownify }}</div>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+    {% include actions.html actions=s.actions %}
+  </div>
+</section>

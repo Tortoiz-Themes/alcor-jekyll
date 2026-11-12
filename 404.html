@@ -1,0 +1,14 @@
+---
+layout: default
+title: Page not found
+permalink: /404.html
+sitemap: false
+noindex: true
+---
+{% include header.html %}
+<main id="main" class="section wrap-narrow">
+  <h1>Nothing <em>here</em>.</h1>
+  <p class="lede" style="margin-top: var(--space-s)">{{ site.data.strings.not_found | default: "That page doesn't exist, or it has moved." }}</p>
+  <p class="actions"><a class="btn btn--primary" href="{{ '/' | relative_url }}">Back to the home page</a></p>
+</main>
+{% include footer.html %}

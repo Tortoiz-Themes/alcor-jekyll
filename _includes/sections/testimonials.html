@@ -1,0 +1,35 @@
+{%- comment -%}
+  Testimonials: what clients say. Use real words, with permission.
+  Variants:
+    single  one large quote. Best when you have one great line.
+    grid    two or three quotes side by side.
+  Fields: label, heading, items [{ quote, name, role, company, image { src, alt, width, height } }]
+  No photo? A circle with the person's initials stands in.
+{%- endcomment -%}
+{%- assign s = include.section -%}
+{%- assign v = s.variant | default: 'single' -%}
+<section {% include section-attrs.html section=s default='single' prefix=include.prefix %}>
+  <div class="wrap">
+    {%- if s.label or s.heading %}{% include section-head.html section=s num=include.num %}{% endif %}
+    <ul class="quotes" role="list">
+      {%- for item in s.items %}
+      {%- if v == 'single' and forloop.index > 1 %}{% break %}{% endif %}
+      <li>
+        <figure class="quote-card">
+          <blockquote class="quote">{{ item.quote | strip }}</blockquote>
+          <figcaption class="quote-card__by">
+            {%- if item.image -%}
+            {%- include url.html url=item.image.src -%}
+            <img class="quote-card__face" src="{{ href }}" alt="" width="48" height="48" loading="lazy" decoding="async">
+            {%- else -%}
+            {%- assign words = item.name | split: ' ' -%}
+            <span class="quote-card__face quote-card__face--initials" aria-hidden="true">{{ words.first | slice: 0 }}{% if words.size > 1 %}{{ words.last | slice: 0 }}{% endif %}</span>
+            {%- endif %}
+            <span class="cite"><strong>{{ item.name }}</strong>{% if item.role or item.company %}<br>{{ item.role }}{% if item.role and item.company %}, {% endif %}{{ item.company }}{% endif %}</span>
+          </figcaption>
+        </figure>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

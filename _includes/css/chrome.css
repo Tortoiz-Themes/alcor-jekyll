@@ -1,0 +1,65 @@
+/* Header, footer, section heads and buttons rows: on every page. */
+@layer sections {
+  /* Section spacing. A section on the same tone as the one before keeps its rule but loses double padding. */
+  .sec { padding-block: var(--section-space); }
+  .sec-head { display: grid; gap: var(--space-s); margin-bottom: var(--space-xl); }
+  .sec-head__title { font-size: var(--step-5); max-width: 18ch; }
+  .sec-head__intro { max-width: 36em; }
+  .sec-head__intro > * + * { margin-top: var(--space-2xs); }
+  .sec-head--center { text-align: center; justify-items: center; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-xs) var(--space-s); margin-top: var(--space-l); }
+
+  /* Header: sticky, paper-coloured, a rule underneath. */
+  .site-header {
+    position: sticky; top: 0; z-index: var(--z-header);
+    background: var(--page); border-bottom: var(--rule);
+  }
+  .site-header__inner { display: flex; align-items: center; gap: var(--space-m); min-height: var(--header-height); }
+  .site-header__name { font-family: var(--font-display); font-size: var(--step-2); line-height: 1; color: var(--ink); text-decoration: none; }
+  .site-nav ul, .site-menu__panel ul { list-style: none; padding: 0; }
+  .site-nav { display: none; }
+  .site-nav ul { display: flex; gap: var(--space-m); }
+  .site-nav a, .site-menu__panel a { color: var(--ink); text-decoration: none; font-size: var(--step--1); }
+  .site-nav a:hover, .site-menu__panel a:hover { color: var(--brand-ink); text-decoration: underline; }
+  .site-header__end { display: flex; align-items: center; gap: var(--space-2xs); margin-left: auto; }
+  .site-header__cta { display: none; }
+
+  /* Phone menu: a <details> drop-down. */
+  .site-menu { position: relative; }
+  .site-menu__button {
+    display: inline-flex; align-items: center; min-height: var(--tap); padding-inline: 1rem;
+    border: 1px solid var(--ink); border-radius: var(--radius-pill);
+    font-size: var(--step--1); font-weight: var(--weight-strong); list-style: none; cursor: pointer;
+  }
+  .site-menu__button::-webkit-details-marker { display: none; }
+  .site-menu[open] .site-menu__button { background: var(--ink); color: var(--page); }
+  .site-menu__panel {
+    position: absolute; right: 0; top: calc(100% + 0.5rem); min-width: 13rem;
+    padding: var(--space-2xs) var(--space-s); background: var(--surface); border: var(--rule); box-shadow: var(--shadow-m);
+  }
+  .site-menu__panel a { display: flex; align-items: center; min-height: var(--tap); font-size: var(--step-0); }
+  .site-menu__panel li + li { border-top: var(--hairline); }
+
+  @media (min-width: 52em) {
+    .site-nav { display: block; margin-inline: auto; }
+    .site-header__cta { display: inline-flex; }
+    .site-menu { display: none; }
+  }
+
+  /* Footer */
+  .site-footer { padding-block: var(--space-2xl) var(--space-l); border-top: var(--rule); }
+  .site-footer__line { font-size: var(--step-5); max-width: 16ch; margin-bottom: var(--space-xl); }
+  .site-footer__row {
+    display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2xs) var(--space-m);
+    padding-top: var(--space-s); border-top: var(--hairline);
+    font-size: var(--step--1); color: var(--ink-muted);
+  }
+  .site-footer__social { display: flex; flex-wrap: wrap; gap: var(--space-s); list-style: none; padding: 0; }
+  .site-footer__social a { color: var(--ink); }
+  .site-footer__credit { margin-left: auto; }
+  .site-footer__credit a { color: var(--ink-muted); }
+
+  /* Text written below the front matter */
+  .prose > * + * { margin-top: var(--space-s); }
+  .prose h2 { font-size: var(--step-4); margin-top: var(--space-l); }
+}

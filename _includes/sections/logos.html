@@ -1,0 +1,29 @@
+{%- comment -%}
+  Logos: who you've worked with. Plain names set in the display serif, or logo images.
+  Keep it to 4–8. Use only clients who are happy to be named.
+  Fields: label, heading (optional; often just the label), items [{ name, url, image { src, alt, width, height } }]
+{%- endcomment -%}
+{%- assign s = include.section -%}
+<section {% include section-attrs.html section=s default='row' prefix=include.prefix %}>
+  <div class="wrap logos__inner">
+    {%- if s.label %}
+    <p class="logos__label">{{ s.label }}</p>
+    {%- endif %}
+    {%- if s.heading %}<h2 class="visually-hidden">{{ s.heading }}</h2>{% endif %}
+    <ul class="logos__list" role="list">
+      {%- for item in s.items %}
+      <li class="logos__item">
+        {%- if item.url %}{% include url.html url=item.url %}<a href="{{ href }}" rel="noopener">{% endif -%}
+        {%- if item.image -%}
+        {%- assign alt = item.image.alt | default: item.name -%}
+        {%- include url.html url=item.image.src -%}
+        <img src="{{ href }}" alt="{{ alt | escape }}"{% if item.image.width %} width="{{ item.image.width }}" height="{{ item.image.height }}"{% endif %} loading="lazy" decoding="async">
+        {%- else -%}
+        <span>{{ item.name }}</span>
+        {%- endif -%}
+        {%- if item.url %}</a>{% endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

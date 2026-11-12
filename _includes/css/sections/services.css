@@ -1,0 +1,31 @@
+/* Services: list (numbered rows on rules) and cards. */
+@layer sections {
+  .services__items { list-style: none; padding: 0; }
+  .services__num { font-family: var(--font-mono); font-size: var(--step--1); color: var(--brand-ink); }
+  .services__title { font-family: var(--font-display); font-weight: 400; font-size: var(--step-3); line-height: 1.1; }
+  .services__text { color: var(--ink-muted); }
+  .services__text > * + * { margin-top: var(--space-2xs); }
+  .services__tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .services__price { font-size: var(--step--1); font-weight: var(--weight-strong); white-space: nowrap; }
+
+  /* list */
+  .sec-services--list .services__item {
+    display: grid; grid-template-columns: 2.5rem 1fr; gap: var(--space-2xs) var(--space-s);
+    padding-block: var(--space-m); border-top: var(--hairline);
+  }
+  .sec-services--list .services__item:last-child { border-bottom: var(--hairline); }
+  .sec-services--list .services__text, .sec-services--list .services__price { grid-column: 2; }
+  @media (min-width: 52em) {
+    .sec-services--list .services__item { grid-template-columns: 3rem minmax(0, 1fr) minmax(0, 1.3fr) 8rem; align-items: baseline; }
+    .sec-services--list .services__text, .sec-services--list .services__price { grid-column: auto; }
+    .sec-services--list .services__price { text-align: right; }
+  }
+
+  /* cards */
+  .sec-services--cards .services__items { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14.5rem), 1fr)); gap: var(--space-s); }
+  .sec-services--cards .services__item {
+    display: flex; flex-direction: column; gap: var(--space-xs);
+    padding: var(--space-m); background: var(--surface); border: var(--hairline); border-radius: var(--radius-s);
+  }
+  .sec-services--cards .services__price { margin-top: auto; padding-top: var(--space-xs); border-top: var(--hairline); }
+}

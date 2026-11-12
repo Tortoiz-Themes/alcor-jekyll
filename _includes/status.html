@@ -1,0 +1,5 @@
+{%- comment -%} Availability badge. state: available | booked | closed. Falls back to site.alcor.availability. {%- endcomment -%}
+{%- assign st = include.status | default: site.alcor.availability -%}
+{%- if st and st.text -%}
+<p class="status{% if st.state == 'booked' %} status--booked{% elsif st.state == 'closed' %} status--closed{% endif %}">{{ st.text }}</p>
+{%- endif -%}

@@ -1,0 +1,4 @@
+{%- comment -%} Sets `href`: site paths ("/x") get the baseurl, so the site also works at user.github.io/repo. Anchors and full URLs pass through. {%- endcomment -%}
+{%- assign href = include.url -%}
+{%- assign first = include.url | slice: 0 -%}
+{%- if first == '/' -%}{%- assign href = include.url | relative_url -%}{%- endif -%}

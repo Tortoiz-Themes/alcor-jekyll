@@ -1,0 +1,22 @@
+/* Testimonials: one large quote, or a grid of two or three. */
+@layer sections {
+  .quotes { list-style: none; padding: 0; }
+  .quote-card { display: grid; gap: var(--space-m); margin: 0; }
+  .quote-card__by { display: flex; align-items: center; gap: var(--space-xs); }
+  .quote-card__by .cite { margin: 0; line-height: 1.4; }
+  .quote-card__face { flex: none; width: 3rem; height: 3rem; border-radius: 50%; object-fit: cover; }
+  .quote-card__face--initials {
+    display: grid; place-items: center; background: var(--brand-soft); color: var(--brand-ink);
+    font-family: var(--font-display); font-size: var(--step-1);
+  }
+
+  /* single */
+  .sec-testimonials--single .quote { font-size: var(--step-5); line-height: 1.08; max-width: 22ch; }
+  @media (min-width: 52em) { .sec-testimonials--single .quote { text-indent: -0.4em; } } /* hang the opening mark, where there is room */
+  .sec-testimonials--single .quote-card { gap: var(--space-l); }
+
+  /* grid */
+  .sec-testimonials--grid .quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: var(--space-l); }
+  .sec-testimonials--grid .quote-card { height: 100%; align-content: space-between; padding-top: var(--space-s); border-top: var(--rule); }
+  .sec-testimonials--grid .quote { font-size: var(--step-2); }
+}

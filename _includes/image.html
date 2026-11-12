@@ -1,0 +1,7 @@
+{%- comment -%}
+  A plain responsive image. Set width and height (the file's pixel size) so the page doesn't jump while it loads.
+  eager=true only for the first big image on the page.
+{%- endcomment -%}
+{%- assign img = include.image -%}
+{%- include url.html url=img.src -%}
+<img src="{{ href }}" alt="{{ img.alt | escape }}"{% if img.width %} width="{{ img.width }}" height="{{ img.height }}"{% endif %}{% if include.sizes %} sizes="{{ include.sizes }}"{% endif %}{% if include.eager %} fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async"{% if img.position %} style="object-position: {{ img.position }}"{% endif %}{% if include.class %} class="{{ include.class }}"{% endif %}>

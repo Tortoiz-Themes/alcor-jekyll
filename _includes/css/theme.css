@@ -1,0 +1,78 @@
+/* Alcor semantic colours. Sections and components use only these names, never the scales.
+   Every value is light-dark(light, dark): the page follows the visitor's system setting,
+   [data-theme] forces one (the header switch), and a tone can force a scheme for one section. */
+@layer tokens {
+  :root {
+    color-scheme: light dark;
+
+    /* Paper and ink */
+    --page: light-dark(#f6f2ea, #161512);
+    --bg: var(--page);
+    --surface: light-dark(#fbf9f4, var(--paper-950));
+    --surface-2: light-dark(#ebe4d6, var(--paper-900));
+    --ink: light-dark(#1b1a17, #efe9dd);
+    --ink-muted: light-dark(var(--paper-800), var(--paper-300));
+    --ink-subtle: light-dark(var(--paper-700), var(--paper-400));
+    --line: light-dark(var(--paper-200), var(--paper-800));
+    --line-strong: var(--ink); /* the editorial rule under the header and section labels */
+    --field: light-dark(#ffffff, var(--paper-900));
+    --field-border: var(--paper-500); /* 3:1 against fields and page in both modes (WCAG 1.4.11) */
+
+    /* Brand: vermilion. Links, the main button, the hero accent word. */
+    --brand: light-dark(var(--vermilion-600), var(--vermilion-400));
+    --brand-hover: light-dark(var(--vermilion-700), var(--vermilion-300));
+    --on-brand: light-dark(#ffffff, #161512);
+    --brand-ink: light-dark(var(--vermilion-700), var(--vermilion-400)); /* text and links: 4.5:1 on every light surface */
+    --brand-soft: light-dark(var(--vermilion-50), #2c1610);
+
+    /* Accent: moss. "Available" status and success messages. */
+    --accent: light-dark(var(--moss-700), var(--moss-300));
+    --accent-ink: light-dark(var(--moss-700), var(--moss-300));
+    --accent-soft: light-dark(var(--moss-100), #1c2617);
+    --pending: var(--ochre-400); /* "booked until" status dot */
+
+    /* Highlight: an ochre marker behind words. Always dark text on it. */
+    --highlight: light-dark(var(--ochre-200), var(--ochre-300));
+    --on-highlight: #1b1a17;
+
+    /* Status */
+    --success: var(--accent-ink);
+    --success-soft: var(--accent-soft);
+    --danger: light-dark(var(--red-600), var(--red-400));
+    --danger-soft: light-dark(var(--red-50), #2e1214);
+
+    --focus: var(--brand);
+    --shadow-near: light-dark(rgb(27 26 23 / 0.06), rgb(0 0 0 / 0.4));
+    --shadow-far: light-dark(rgb(27 26 23 / 0.1), rgb(0 0 0 / 0.55));
+  }
+
+  :root[data-theme='light'] { color-scheme: light; }
+  :root[data-theme='dark'] { color-scheme: dark; }
+
+  /* Section tones. Set `tone:` on a section; everything inside re-colours itself. */
+  .tone-default { --bg: var(--page); }
+  .tone-sand { --bg: var(--surface-2); --surface: var(--page); }
+  .tone-ink {
+    color-scheme: dark;
+    --bg: #1b1a17;
+    --surface: #24221e;
+    --surface-2: #24221e;
+  }
+  .tone-vermilion {
+    color-scheme: dark;
+    --bg: var(--vermilion-700);
+    --surface: var(--vermilion-800);
+    --surface-2: var(--vermilion-800);
+    --ink: #ffffff;
+    --ink-muted: var(--vermilion-100);
+    --ink-subtle: var(--vermilion-100);
+    --line: var(--vermilion-500);
+    --line-strong: #ffffff;
+    --brand: #f6f2ea;
+    --brand-hover: #ffffff;
+    --on-brand: #1b1a17;
+    --brand-ink: #ffffff;
+    --focus: #ffffff;
+  }
+  [class*='tone-'] { background-color: var(--bg); color: var(--ink); }
+}

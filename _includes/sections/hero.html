@@ -1,0 +1,41 @@
+{%- comment -%}
+  Hero: the opening statement.
+  Variants:
+    text      words only: status, big heading, a line about you, buttons, an optional row of facts. Looks finished with no photo.
+    portrait  the same beside a portrait photo. Use it when you have a good one.
+  Fields: heading (*italic* words turn vermilion), text, status { state, text }, actions,
+          facts [{ label, value }], image { src, alt, width, height, position } or art (with art_label), caption
+{%- endcomment -%}
+{%- assign s = include.section -%}
+{%- assign hid = s.id | default: 'hero' -%}{%- if include.prefix %}{% assign hid = include.prefix | append: '-' | append: hid %}{% endif -%}
+<section {% include section-attrs.html section=s default='text' prefix=include.prefix %} aria-labelledby="{{ hid }}-title">
+  <div class="wrap hero__grid">
+    <div class="hero__body">
+      {% include status.html status=s.status %}
+      <h1 class="hero__title" id="{{ hid }}-title">{{ s.heading | markdownify | remove: '<p>' | remove: '</p>' | strip }}</h1>
+      {%- if s.text %}
+      <div class="hero__text lede">{{ s.text | markdownify }}</div>
+      {%- endif %}
+      {% include actions.html actions=s.actions %}
+    </div>
+    {%- if s.variant == 'portrait' and s.image or s.variant == 'portrait' and s.art %}
+    <figure class="hero__media">
+      {%- if s.image %}
+      {% include image.html image=s.image eager=true sizes="(min-width: 60em) 40vw, 100vw" %}
+      {%- else %}
+      {% include art.html name=s.art label=s.art_label %}
+      {%- endif %}
+      {%- if s.caption %}<figcaption>{{ s.caption }}</figcaption>{% endif %}
+    </figure>
+    {%- endif %}
+  </div>
+  {%- if s.facts.size > 0 %}
+  <div class="wrap">
+    <dl class="hero__facts">
+      {%- for f in s.facts %}
+      <div><dt>{{ f.label }}</dt><dd>{{ f.value }}</dd></div>
+      {%- endfor %}
+    </dl>
+  </div>
+  {%- endif %}
+</section>

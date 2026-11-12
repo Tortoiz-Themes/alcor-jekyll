@@ -1,0 +1,17 @@
+/* About: photo beside the words, facts underneath. */
+@layer sections {
+  .about__grid { display: grid; gap: var(--space-xl); align-items: start; }
+  .about__media { margin: 0; }
+  .about__media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-s); }
+  .about__text { font-size: var(--step-1); max-width: 34em; }
+  .about__text > * + * { margin-top: var(--space-s); }
+  .about__text p:first-child::first-line { font-weight: var(--weight-strong); }
+  .about__facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: var(--space-s) var(--space-m); margin-top: var(--space-l); }
+  .about__facts > div { padding-top: var(--space-2xs); border-top: var(--hairline); }
+  .about__facts dt { font-size: var(--step--2); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--ink-subtle); }
+  .about__facts dd { margin: 0.2rem 0 0; }
+  @media (min-width: 52em) {
+    .about__grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--space-2xl); }
+    .about__grid--text { grid-template-columns: minmax(0, 1fr); padding-left: calc(33% + var(--space-2xl) / 3); }
+  }
+}

@@ -1,0 +1,12 @@
+{%- comment -%}
+  Renders a list of sections in order. Each item needs a `type` (hero, services, work, contact...).
+  Sections with a `label` get the next number ("01 — Services"), so reordering renumbers them.
+{%- endcomment -%}
+{%- assign num = 0 -%}
+{%- for s in include.sections -%}
+  {%- if s.hidden -%}{%- continue -%}{%- endif -%}
+  {%- comment -%} The logos strip has a label but no number. {%- endcomment -%}
+  {%- if s.label and s.type != 'logos' -%}{%- assign num = num | plus: 1 -%}{%- endif -%}
+  {%- capture n -%}{%- if num < 10 -%}0{%- endif -%}{{ num }}{%- endcapture -%}
+  {%- include sections/{{ s.type }}.html section=s num=n prefix=include.prefix -%}
+{%- endfor -%}

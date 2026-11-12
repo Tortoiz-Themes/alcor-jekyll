@@ -1,0 +1,4 @@
+{%- comment -%} Shared section wrapper attributes: anchor id, type and variant classes, tone. {%- endcomment -%}
+{%- assign s = include.section -%}
+{%- assign v = s.variant | default: include.default -%}
+id="{% if include.prefix %}{{ include.prefix }}-{% endif %}{{ s.id | default: s.type }}" class="sec sec-{{ s.type }} sec-{{ s.type }}--{{ v }} tone-{{ s.tone | default: 'default' }}"

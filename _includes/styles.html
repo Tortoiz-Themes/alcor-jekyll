@@ -1,0 +1,20 @@
+{%- comment -%}
+  All CSS is inlined into the page: one request, no render-blocking stylesheet.
+  Plain CSS, not Sass: GitHub Pages still runs Ruby Sass 3.7, which can't read modern CSS.
+  Layer order is declared once, so a section can always override ui, and ui can always override base.
+{%- endcomment -%}
+<style>
+@layer tokens, base, ui, sections, utilities;
+{% include css/fonts.css %}
+{% include css/colors.css %}
+{% include css/theme.css %}
+{% include css/scale.css %}
+{% include css/base.css %}
+{% include css/ui.css %}
+{% include css/chrome.css %}
+{%- comment -%} Only the CSS of section types this page uses. {%- endcomment -%}
+{%- if page.sections %}{% assign types = page.sections | map: 'type' | uniq %}{% for t in types %}
+{% include css/sections/{{ t }}.css %}{% endfor %}{% endif %}
+{%- if page.css %}{% for file in page.css %}
+{% include css/{{ file }}.css %}{% endfor %}{% endif %}
+</style>
