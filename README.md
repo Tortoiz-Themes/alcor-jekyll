@@ -14,7 +14,7 @@ A free one-page Jekyll theme for freelancers and small studios. Warm paper, ink 
 - **Light and dark mode.** It follows the visitor's setting, with a switch that remembers their choice.
 - **Accessible.** Every colour pair passes WCAG AA in both modes. Skip link, focus styles, real headings.
 - **A contact form that needs no JavaScript.** Works with [Web3Forms](https://web3forms.com) or [Formspree](https://formspree.io).
-- **Illustrations that recolour themselves.** Five drawings come with the theme. They follow your colours and dark mode, and you can use them anywhere under the MIT licence.
+- **Illustrations that recolour themselves.** Six drawings come with the theme. They follow your colours and dark mode, and you can use them anywhere under the MIT licence.
 - **Search-ready.** Page titles, descriptions, social image, sitemap, and structured data about you and your FAQ.
 
 ## Quick start
@@ -135,7 +135,7 @@ Both services get a hidden spam-trap field.
 ## Pictures and illustrations
 
 - **Photos:** put them in `assets/images/` and add `image: { src, alt, width, height }` to a hero, about or work item. WebP at about twice the shown size keeps the page fast ([Squoosh](https://squoosh.app) is a good free tool for this).
-- **Drawings:** use `art: designer-desk` (and `art_label:` to describe it) instead of `image:`. The drawings live in `_includes/art/`. They use colour classes, not fixed colours, so they follow your palette and dark mode. Add your own SVG there in the same way.
+- **Drawings:** use `art: designer-desk` (or `studio-press`) (and `art_label:` to describe it) instead of `image:`. The drawings live in `_includes/art/`. They use colour classes, not fixed colours, so they follow your palette and dark mode. Add your own SVG there in the same way.
 
 ## Colours and fonts
 

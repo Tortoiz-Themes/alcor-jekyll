@@ -1,7 +1,7 @@
 /* About: photo beside the words, facts underneath. */
 @layer sections {
   .about__grid { display: grid; gap: var(--space-xl); align-items: start; }
-  .about__media { margin: 0; }
+  .about__media { margin: 0; width: min(100%, 20rem); } /* modest on phones; the grid sizes it from 52em */
   .about__media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-s); }
   .about__text { font-size: var(--step-1); max-width: 34em; }
   .about__text > * + * { margin-top: var(--space-s); }
@@ -13,6 +13,7 @@
   @media (min-width: 52em) {
     .about__grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--space-2xl); }
     .about__grid--text { grid-template-columns: minmax(0, 1fr); }
+    .about__media { width: auto; }
 
     /* No picture: the heading takes the left column and the words sit beside it, top-aligned,
        with the numbered label still running across both. Without :has() support it simply stacks. */

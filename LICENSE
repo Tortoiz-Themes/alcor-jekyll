@@ -25,9 +25,9 @@ SOFTWARE.
 What this licence covers
 
 - All code, layouts, styles and demo content in this repository.
-- The illustrations in _includes/art/ (designer-desk, crumb-co, bairro-books,
-  studio-norte, lumen-notes). Use them in your own projects, free, under the
-  same MIT terms.
+- The illustrations in _includes/art/ (designer-desk, studio-press, crumb-co,
+  bairro-books, studio-norte, lumen-notes). Use them in your own projects,
+  free, under the same MIT terms.
 
 Not covered: the Instrument Serif font in assets/fonts/ is by The Instrument Serif
 Project Authors, used under the SIL Open Font License 1.1 (assets/fonts/OFL.txt).

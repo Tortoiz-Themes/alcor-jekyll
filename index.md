@@ -122,6 +122,8 @@ sections:
       I like small businesses because you can see the work matter. A new sign goes up and more people walk in. A website gets simpler and the phone stops ringing with the same three questions.
   
       When I'm not designing, I'm usually printing something on the old press in my studio.
+    art: studio-press
+    art_label: Drawing of a small letterpress on a workbench, with fresh prints and ink tins
     facts:
       - label: Studio
         value: Graça, Lisbon

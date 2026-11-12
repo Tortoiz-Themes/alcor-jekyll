@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <!-- A small letterpress on a workbench, a fresh stack of prints with a star, ink tins on the shelf. -->
+  <rect class="art-bg" width="400" height="500"/>
+
+  <!-- a print pinned to the wall -->
+  <g transform="rotate(-4 120 92)">
+    <rect class="art-fig" x="82" y="44" width="76" height="96" rx="2"/>
+    <rect class="art-line" stroke-width="2.5" x="82" y="44" width="76" height="96" rx="2"/>
+    <path class="art-1" d="M120 66c3 15 9 21 24 24-15 3-21 9-24 24-3-15-9-21-24-24 15-3 21-9 24-24Z"/>
+    <path class="art-line" stroke-width="2.5" d="M98 126h44"/>
+  </g>
+  <circle class="art-ink" cx="120" cy="50" r="3"/>
+
+  <!-- shelf with ink tins -->
+  <path class="art-line" stroke-width="3" d="M196 150h168"/>
+  <path class="art-line" stroke-width="3" d="M214 150v12M346 150v12"/>
+  <rect class="art-1" x="216" y="118" width="34" height="32" rx="3"/>
+  <rect class="art-2" x="258" y="124" width="30" height="26" rx="3"/>
+  <rect class="art-3" x="296" y="112" width="34" height="38" rx="3"/>
+  <path class="art-line" stroke-width="2.5" d="M216 118h34v32h-34zM258 124h30v26h-30zM296 112h34v38h-34z"/>
+  <path class="art-line-fig" stroke-width="2.5" d="M224 132h18M265 136h16M304 128h18"/>
+
+  <!-- workbench -->
+  <ellipse class="art-shade" cx="200" cy="474" rx="170" ry="7"/>
+  <rect class="art-ink" x="44" y="378" width="312" height="12" rx="2"/>
+  <rect class="art-ink" x="66" y="390" width="10" height="84"/>
+  <rect class="art-ink" x="324" y="390" width="10" height="84"/>
+
+  <!-- the press -->
+  <rect class="art-ink" x="88" y="352" width="168" height="26" rx="4"/>
+  <rect class="art-fig" x="150" y="232" width="44" height="120" rx="4"/>
+  <rect class="art-line" stroke-width="3" x="150" y="232" width="44" height="120" rx="4"/>
+  <ellipse class="art-1s" cx="172" cy="226" rx="52" ry="13"/>
+  <ellipse class="art-line" stroke-width="3" cx="172" cy="226" rx="52" ry="13"/>
+  <path class="art-line-1" stroke-width="4" d="M146 224q26 8 52 0"/>
+  <rect class="art-fig" x="100" y="268" width="50" height="76" rx="3"/>
+  <rect class="art-line" stroke-width="3" x="100" y="268" width="50" height="76" rx="3"/>
+  <rect class="art-fig" x="110" y="282" width="30" height="40" rx="1"/>
+  <rect class="art-line" stroke-width="2" x="110" y="282" width="30" height="40" rx="1"/>
+  <path class="art-line" stroke-width="6" d="M194 300l78-58"/>
+  <circle class="art-1" cx="276" cy="239" r="11"/>
+  <circle class="art-line" stroke-width="3" cx="276" cy="239" r="11"/>
+  <circle class="art-ink" cx="194" cy="300" r="7"/>
+
+  <!-- fresh prints -->
+  <rect class="art-fig" x="282" y="366" width="64" height="12" rx="1"/>
+  <rect class="art-line" stroke-width="2.5" x="282" y="366" width="64" height="12" rx="1"/>
+  <g transform="rotate(-8 314 330)">
+    <rect class="art-fig" x="282" y="304" width="64" height="52" rx="2"/>
+    <rect class="art-line" stroke-width="2.5" x="282" y="304" width="64" height="52" rx="2"/>
+    <path class="art-1" d="M314 314c2 9 6 13 15 15-9 2-13 6-15 15-2-9-6-13-15-15 9-2 13-6 15-15Z"/>
+  </g>
+</svg>
