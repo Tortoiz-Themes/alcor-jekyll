@@ -12,6 +12,18 @@
   .about__facts dd { margin: 0.2rem 0 0; }
   @media (min-width: 52em) {
     .about__grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--space-2xl); }
-    .about__grid--text { grid-template-columns: minmax(0, 1fr); padding-left: calc(33% + var(--space-2xl) / 3); }
+    .about__grid--text { grid-template-columns: minmax(0, 1fr); }
+
+    /* No picture: the heading takes the left column and the words sit beside it, top-aligned,
+       with the numbered label still running across both. Without :has() support it simply stacks. */
+    .sec-about .wrap:has(> .about__grid--text) {
+      display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+      column-gap: var(--space-2xl); align-items: start;
+    }
+    .sec-about .wrap:has(> .about__grid--text) > .sec-head { display: contents; }
+    .sec-about .wrap:has(> .about__grid--text) .label { grid-column: 1 / -1; margin-bottom: var(--space-m); }
+    .sec-about .wrap:has(> .about__grid--text) .sec-head__title,
+    .sec-about .wrap:has(> .about__grid--text) .sec-head__intro { grid-column: 1; }
+    .sec-about .wrap:has(> .about__grid--text) .about__grid { grid-column: 2; grid-row: 2 / span 2; }
   }
 }
