@@ -6,7 +6,9 @@ title: Brand and web designer in Lisbon
 description: Independent brand and web designer in Lisbon. Identities, websites and print for small businesses that care how things are made.
 sections:
   - type: hero
-    variant: text
+    variant: portrait
+    art: designer-desk
+    art_label: Drawing of a designer at her desk under an arched window
     heading: I design brands and websites for *small, careful* businesses.
     text: I'm Ana, an independent designer in Lisbon. For twelve years I've helped bakeries, bookshops, architects and a few software teams look like themselves.
     actions:
@@ -120,8 +122,6 @@ sections:
       I like small businesses because you can see the work matter. A new sign goes up and more people walk in. A website gets simpler and the phone stops ringing with the same three questions.
   
       When I'm not designing, I'm usually printing something on the old press in my studio.
-    art: designer-desk
-    art_label: Drawing of a designer at her desk under an arched window
     facts:
       - label: Studio
         value: Graça, Lisbon

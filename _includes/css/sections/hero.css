@@ -8,7 +8,8 @@
   .hero__text { max-width: 34em; }
   .hero__body .actions { margin-top: 0; }
 
-  .hero__media { margin: 0; }
+  /* On phones the picture sits under the buttons, so keep it modest instead of a full screen tall. */
+  .hero__media { margin: 0; width: min(100%, 20rem); }
   .hero__media img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-s); }
   .hero__media figcaption { margin-top: var(--space-2xs); font-size: var(--step--2); color: var(--ink-subtle); }
 
@@ -22,5 +23,6 @@
 
   @media (min-width: 60em) {
     .sec-hero--portrait .hero__grid { grid-template-columns: 1.35fr 1fr; }
+    .sec-hero--portrait .hero__media { width: auto; }
   }
 }
