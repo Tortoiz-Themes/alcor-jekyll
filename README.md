@@ -6,11 +6,15 @@ A free one-page Jekyll theme for freelancers and small studios. Warm paper, ink 
 
 ![Alcor home page](screenshot.png)
 
+**PageSpeed Insights, 12 November 2026:** 100 for performance, accessibility, best practices and SEO, on mobile and desktop. [Run it yourself](https://pagespeed.web.dev/analysis?url=https%3A%2F%2Falcor.tortoizthemes.com%2F).
+
+![PageSpeed Insights report for alcor.tortoizthemes.com: 100 in all four scores on mobile and on desktop](pagespeed.png)
+
 ## What you get
 
 - **One page, built from sections.** Hero, client names, services, work, process, about, testimonials, FAQ and contact. Reorder them, switch them off or use one twice, all in one file.
 - **Works on GitHub Pages.** No GitHub Actions and no custom plugins: only `jekyll-seo-tag`, `jekyll-sitemap` and `jekyll-remote-theme`, which GitHub Pages already runs.
-- **Fast.** No jQuery, no Bootstrap, no icon font. One small font, all CSS inside the page, and under 1 KB of JavaScript. Built for 100 on mobile PageSpeed.
+- **Fast.** No jQuery, no Bootstrap, no icon font. One small font, all CSS inside the page, and under 1 KB of JavaScript. The demo scores 100 on PageSpeed, mobile and desktop.
 - **Light and dark mode.** It follows the visitor's setting, with a switch that remembers their choice.
 - **Accessible.** Every colour pair passes WCAG AA in both modes. Skip link, focus styles, real headings.
 - **A contact form that needs no JavaScript.** Works with [Web3Forms](https://web3forms.com) or [Formspree](https://formspree.io).
