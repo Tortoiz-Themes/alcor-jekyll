@@ -1,0 +1,39 @@
+# Publishes the live demo at https://alcor.tortoizthemes.com.
+# It only runs in Tortoiz-Themes/alcor-jekyll. Copies made with "Use this template" skip it:
+# GitHub Pages builds your copy by itself (Settings → Pages → Deploy from a branch).
+# It uses GitHub's own Jekyll builder, the same one a branch deploy uses.
+name: Demo
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.repository == 'Tortoiz-Themes/alcor-jekyll'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/jekyll-build-pages@v1
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
