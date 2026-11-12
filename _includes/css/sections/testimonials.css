@@ -11,7 +11,7 @@
   }
 
   /* single */
-  .sec-testimonials--single .quote { font-size: var(--step-5); line-height: 1.08; max-width: 22ch; }
+  .sec-testimonials--single .quote { font-size: var(--step-5); line-height: 1.08; max-width: 10.4em; }
   @media (min-width: 52em) { .sec-testimonials--single .quote { text-indent: -0.4em; } } /* hang the opening mark, where there is room */
   .sec-testimonials--single .quote-card { gap: var(--space-l); }
 

@@ -3,7 +3,7 @@
 @layer tokens {
   :root {
     /* Fonts. Instrument Serif is the only web font; body text uses the system font. */
-    --font-display: 'Instrument Serif', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    --font-display: 'Instrument Serif', 'Instrument Serif Palatino', 'Instrument Serif Georgia', 'Instrument Serif Times', 'Instrument Serif Noto', 'Instrument Serif DejaVu', serif;
     --font-body: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --font-mono: ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, Consolas, monospace;
 

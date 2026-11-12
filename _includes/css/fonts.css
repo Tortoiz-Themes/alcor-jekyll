@@ -13,3 +13,97 @@
   font-display: swap;
   src: url('{{ "/assets/fonts/instrument-serif-400-italic.woff2" | relative_url }}') format('woff2');
 }
+
+/* Fallbacks scaled to Instrument Serif's width (measured in Chrome, then 0.5% narrower), so headings keep their line breaks while the font loads
+   and nothing on the page shifts when it arrives. Each one is used only if that font is on the visitor's device:
+   Palatino (Windows, Mac), Georgia, Times or Liberation Serif, Noto Serif (Android), DejaVu Serif (Linux). */
+@font-face {
+  font-family: 'Instrument Serif Palatino';
+  font-style: normal;
+  src: local('Palatino Linotype'), local('Palatino'), local('Palatino-Roman');
+  size-adjust: 74.3%;
+  ascent-override: 133.2%;
+  descent-override: 41.7%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Instrument Serif Palatino';
+  font-style: italic;
+  src: local('Palatino Linotype Italic'), local('Palatino Italic'), local('Palatino-Italic');
+  size-adjust: 88.6%;
+  ascent-override: 111.7%;
+  descent-override: 35.0%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Instrument Serif Georgia';
+  font-style: normal;
+  src: local('Georgia');
+  size-adjust: 74.7%;
+  ascent-override: 132.5%;
+  descent-override: 41.5%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Instrument Serif Georgia';
+  font-style: italic;
+  src: local('Georgia Italic'), local('Georgia-Italic');
+  size-adjust: 78.6%;
+  ascent-override: 126.0%;
+  descent-override: 39.4%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Instrument Serif Times';
+  font-style: normal;
+  src: local('Times New Roman'), local('TimesNewRomanPSMT'), local('Liberation Serif'), local('Tinos'), local('Times');
+  size-adjust: 81.9%;
+  ascent-override: 120.9%;
+  descent-override: 37.9%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Instrument Serif Times';
+  font-style: italic;
+  src: local('Times New Roman Italic'), local('TimesNewRomanPS-ItalicMT'), local('Liberation Serif Italic'), local('Tinos Italic'), local('Times Italic');
+  size-adjust: 88.7%;
+  ascent-override: 111.6%;
+  descent-override: 34.9%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Instrument Serif Noto';
+  font-style: normal;
+  src: local('Noto Serif'), local('NotoSerif');
+  size-adjust: 69.3%;
+  ascent-override: 142.9%;
+  descent-override: 44.7%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Instrument Serif Noto';
+  font-style: italic;
+  src: local('Noto Serif Italic'), local('NotoSerif-Italic');
+  size-adjust: 76.2%;
+  ascent-override: 129.9%;
+  descent-override: 40.7%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Instrument Serif DejaVu';
+  font-style: normal;
+  src: local('DejaVu Serif'), local('DejaVuSerif');
+  size-adjust: 64.4%;
+  ascent-override: 153.7%;
+  descent-override: 48.1%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Instrument Serif DejaVu';
+  font-style: italic;
+  src: local('DejaVu Serif Italic'), local('DejaVuSerif-Italic');
+  size-adjust: 69.6%;
+  ascent-override: 142.2%;
+  descent-override: 44.5%;
+  line-gap-override: 0%;
+}

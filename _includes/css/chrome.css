@@ -3,7 +3,7 @@
   /* Section spacing. A section on the same tone as the one before keeps its rule but loses double padding. */
   .sec { padding-block: var(--section-space); }
   .sec-head { display: grid; gap: var(--space-s); margin-bottom: var(--space-xl); }
-  .sec-head__title { font-size: var(--step-5); max-width: 18ch; }
+  .sec-head__title { font-size: var(--step-5); max-width: 8.5em; } /* em, not ch: ch changes with the fallback font and re-wraps the heading */
   .sec-head__intro { max-width: 36em; }
   .sec-head__intro > * + * { margin-top: var(--space-2xs); }
   .sec-head--center { text-align: center; justify-items: center; }
@@ -48,7 +48,7 @@
 
   /* Footer */
   .site-footer { padding-block: var(--space-2xl) var(--space-l); border-top: var(--rule); }
-  .site-footer__line { font-size: var(--step-5); max-width: 16ch; margin-bottom: var(--space-xl); }
+  .site-footer__line { font-size: var(--step-5); max-width: 7.6em; margin-bottom: var(--space-xl); }
   .site-footer__row {
     display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2xs) var(--space-m);
     padding-top: var(--space-s); border-top: var(--hairline);
