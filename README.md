@@ -37,21 +37,25 @@ For a project site (`your-username.github.io/my-site`), set `baseurl: "/my-site"
 In your `_config.yml`:
 
 ```yaml
-remote_theme: Tortoiz-Themes/alcor-jekyll
+remote_theme: Tortoiz-Themes/alcor-jekyll@v1.0.1
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-sitemap
 ```
 
+The `@v1.0.1` pins a tagged release, so a later change to Alcor can't change or break your site until you choose to move. To update, change it to a newer tag from the [releases page](https://github.com/Tortoiz-Themes/alcor-jekyll/releases). Without a tag you always get the newest code on `main`.
+
 Then copy `index.md`, `thank-you.html` and `404.html` from this repository into your site, and copy the `alcor:` block from this `_config.yml` into yours. (Jekyll doesn't read a remote theme's own settings, so they have to live in your site.)
 
-### 3. As a gem (local builds, Netlify, Cloudflare Pages)
+### 3. As a gem (local builds, Netlify, Cloudflare Pages, GitHub Actions)
+
+Not for GitHub Pages' built-in build: that only accepts the themes on [GitHub's supported list](https://pages.github.com/themes/), so there use the template or `remote_theme` above. The gem route is for sites you build yourself.
 
 In your `Gemfile`:
 
 ```ruby
-gem "jekyll-theme-alcor", git: "https://github.com/Tortoiz-Themes/alcor-jekyll"
+gem "jekyll-theme-alcor", git: "https://github.com/Tortoiz-Themes/alcor-jekyll", tag: "v1.0.1"
 ```
 
 In `_config.yml`, set `theme: jekyll-theme-alcor`, then copy the same three pages and the `alcor:` block as above.

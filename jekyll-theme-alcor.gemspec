@@ -5,7 +5,7 @@
 # GitHub Pages users don't need it: they use `remote_theme: Tortoiz-Themes/alcor-jekyll`.
 Gem::Specification.new do |spec|
   spec.name     = "jekyll-theme-alcor"
-  spec.version  = "1.0.0"
+  spec.version  = "1.0.1"
   spec.authors  = ["Tortoiz Themes"]
   spec.summary  = "A free one-page Jekyll theme for freelancers and small studios. Works on GitHub Pages."
   spec.homepage = "https://alcor.tortoizthemes.com"
