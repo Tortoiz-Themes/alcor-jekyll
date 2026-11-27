@@ -19,6 +19,7 @@ A free one-page Jekyll theme for freelancers and small studios. Warm paper, ink 
 - **Accessible.** Every colour pair passes WCAG AA in both modes. Skip link, focus styles, real headings.
 - **A contact form that needs no JavaScript.** Works with [Web3Forms](https://web3forms.com) or [Formspree](https://formspree.io).
 - **Illustrations that recolour themselves.** Six drawings come with the theme. They follow your colours and dark mode, and you can use them anywhere under the MIT licence.
+- **Edit in a browser.** [Sveltia CMS](https://sveltiacms.app) comes set up, so you can change any section in a form instead of a text file.
 - **Search-ready.** Page titles, descriptions, social image, sitemap, and structured data about you and your FAQ.
 
 ## Quick start
@@ -37,14 +38,14 @@ For a project site (`your-username.github.io/my-site`), set `baseurl: "/my-site"
 In your `_config.yml`:
 
 ```yaml
-remote_theme: Tortoiz-Themes/alcor-jekyll@v1.0.1
+remote_theme: Tortoiz-Themes/alcor-jekyll@v1.1.0
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-sitemap
 ```
 
-The `@v1.0.1` pins a tagged release, so a later change to Alcor can't change or break your site until you choose to move. To update, change it to a newer tag from the [releases page](https://github.com/Tortoiz-Themes/alcor-jekyll/releases). Without a tag you always get the newest code on `main`.
+The `@v1.1.0` pins a tagged release, so a later change to Alcor can't change or break your site until you choose to move. To update, change it to a newer tag from the [releases page](https://github.com/Tortoiz-Themes/alcor-jekyll/releases). Without a tag you always get the newest code on `main`.
 
 Then copy `index.md`, `thank-you.html` and `404.html` from this repository into your site, and copy the `alcor:` block from this `_config.yml` into yours. (Jekyll doesn't read a remote theme's own settings, so they have to live in your site.)
 
@@ -55,7 +56,7 @@ Not for GitHub Pages' built-in build: that only accepts the themes on [GitHub's 
 In your `Gemfile`:
 
 ```ruby
-gem "jekyll-theme-alcor", git: "https://github.com/Tortoiz-Themes/alcor-jekyll", tag: "v1.0.1"
+gem "jekyll-theme-alcor", git: "https://github.com/Tortoiz-Themes/alcor-jekyll", tag: "v1.1.0"
 ```
 
 In `_config.yml`, set `theme: jekyll-theme-alcor`, then copy the same three pages and the `alcor:` block as above.
@@ -100,6 +101,17 @@ sections:
 | `contact` | – | Form, email, "book a call" link and your profiles. |
 
 Every section's fields are listed in a comment at the top of its file in `_includes/sections/`.
+
+### Or edit it in a browser
+
+Alcor comes with [Sveltia CMS](https://sveltiacms.app), a free editor that shows each section as a form and saves back into `index.md` and `_config.yml`. Change `repo:` in `admin/config.yml` to your own repository, then:
+
+1. Run `bundle exec jekyll serve`.
+2. Open `http://localhost:4000/admin/` in Chrome or Edge.
+3. Click **Work with Local Repository**, choose your site's folder and allow editing.
+4. Edit, click **Save**, then commit and push as usual.
+
+To edit on your live site, sign in with a GitHub access token or set up the free Cloudflare sign-in Worker. The [CMS guide](https://tortoizthemes.com/docs/alcor/cms/) covers both, and what the editor changes in your files.
 
 ## Settings
 

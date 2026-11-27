@@ -1,0 +1,307 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+#
+# Sveltia CMS settings for Alcor. Open /admin/ on your site to edit your page in a browser.
+# Change `repo` to your own GitHub repository (username/repository-name).
+# Guide: https://tortoizthemes.com/docs/alcor/cms/
+
+backend:
+  name: github
+  repo: Tortoiz-Themes/alcor-jekyll
+  branch: main
+
+# Uploaded pictures go here, and the page links to them from this address.
+media_folder: assets/images
+public_folder: /assets/images
+
+# Leave empty fields out of the files, so the theme's own defaults still apply.
+output:
+  omit_empty_optional_fields: true
+
+collections:
+  - name: pages
+    label: Pages
+    files:
+      - name: home
+        label: Home page
+        file: index.md
+        format: frontmatter
+        fields:
+          - { name: layout, widget: hidden, default: home }
+          - { name: title, label: Page title (browser tab and Google), widget: string }
+          - { name: description, label: Description (Google and social), widget: text }
+          - name: sections
+            label: Sections
+            label_singular: Section
+            widget: list
+            summary: "{{fields.heading}}"
+            types:
+              - name: hero
+                label: Hero
+                fields:
+                  - &hidden { name: hidden, label: Hide this section, widget: boolean, required: false, default: false }
+                  - { name: variant, label: Layout, widget: select, options: [portrait, text], default: portrait }
+                  - &heading { name: heading, label: Heading, widget: string, required: false, hint: "Put a word between *stars* to set it in the accent style." }
+                  - { name: text, label: Text, widget: text, required: false }
+                  - &actions
+                    name: actions
+                    label: Buttons
+                    widget: list
+                    required: false
+                    summary: "{{fields.label}}"
+                    fields:
+                      - { name: label, label: Text, widget: string }
+                      - { name: url, label: Link, widget: string, hint: "A full address, or #contact to jump to a section." }
+                      - name: style
+                        label: Style
+                        widget: select
+                        required: false
+                        options: [primary, outline, link]
+                        hint: Empty means the first button is primary and the rest are outlined.
+                  - &facts
+                    name: facts
+                    label: Facts
+                    widget: list
+                    required: false
+                    summary: "{{fields.label}}: {{fields.value}}"
+                    fields:
+                      - { name: label, label: Label, widget: string }
+                      - { name: value, label: Value, widget: string }
+                  - &art
+                    name: art
+                    label: Illustration
+                    widget: select
+                    required: false
+                    options: [designer-desk, studio-press, crumb-co, bairro-books, studio-norte, lumen-notes]
+                  - &art_label { name: art_label, label: Illustration description, widget: string, required: false }
+                  - &image
+                    name: image
+                    label: Photo
+                    widget: object
+                    required: false
+                    collapsed: true
+                    hint: Use a photo or an illustration, not both.
+                    fields:
+                      - { name: src, label: Picture, widget: image }
+                      - { name: alt, label: Description for screen readers, widget: string }
+                      - { name: width, label: Width (px), widget: number, required: false }
+                      - { name: height, label: Height (px), widget: number, required: false }
+                      - { name: position, label: Focus point (CSS object-position), widget: string, required: false, hint: "For example: center top" }
+                  - { name: caption, label: Caption under the picture, widget: string, required: false }
+                  - name: status
+                    label: Availability badge (leave empty to use the one in Settings)
+                    widget: object
+                    required: false
+                    collapsed: true
+                    fields:
+                      - { name: state, label: State, widget: select, options: [available, booked, closed] }
+                      - { name: text, label: Text, widget: string }
+              - name: logos
+                label: Client logos
+                summary: "{{fields.label}}"
+                fields:
+                  - *hidden
+                  - &label { name: label, label: Small label above the heading, widget: string, required: false }
+                  - *heading
+                  - name: items
+                    label: Clients
+                    widget: list
+                    summary: "{{fields.name}}"
+                    fields:
+                      - { name: name, label: Name, widget: string }
+                      - { name: url, label: Link, widget: string, required: false }
+                      - *image
+              - name: services
+                label: Services
+                fields:
+                  - *hidden
+                  - { name: variant, label: Layout, widget: select, options: [list, cards], default: list }
+                  - *label
+                  - &nav { name: nav, label: Menu link text, widget: string, required: false, hint: Fill this in to add the section to the top menu. }
+                  - &id { name: id, label: Anchor, widget: string, required: false, hint: "Used in links like #work. Defaults to the section type." }
+                  - *heading
+                  - &intro { name: intro, label: Intro, widget: text, required: false }
+                  - name: items
+                    label: Services
+                    widget: list
+                    summary: "{{fields.title}}"
+                    fields:
+                      - { name: title, label: Title, widget: string }
+                      - { name: text, label: Text, widget: text, required: false }
+                      - { name: price, label: Price, widget: string, required: false }
+                      - { name: tags, label: Tags, widget: list, required: false }
+                  - *actions
+              - name: work
+                label: Work
+                fields:
+                  - *hidden
+                  - { name: variant, label: Layout, widget: select, options: [cards, list], default: cards }
+                  - *label
+                  - *nav
+                  - *id
+                  - *heading
+                  - *intro
+                  - name: items
+                    label: Projects
+                    widget: list
+                    summary: "{{fields.title}} ({{fields.year}})"
+                    fields:
+                      - { name: title, label: Title, widget: string }
+                      - { name: client, label: Client, widget: string, required: false }
+                      - { name: year, label: Year, widget: string, required: false }
+                      - { name: role, label: What you did, widget: string, required: false }
+                      - { name: text, label: Text, widget: text, required: false }
+                      - &tone
+                        name: tone
+                        label: Background
+                        widget: select
+                        required: false
+                        options: [sand, ink, vermilion]
+                      - *art
+                      - *art_label
+                      - *image
+                      - { name: url, label: Link, widget: string, required: false }
+                  - *actions
+              - name: process
+                label: Process
+                fields:
+                  - *hidden
+                  - *tone
+                  - *label
+                  - *nav
+                  - *id
+                  - *heading
+                  - *intro
+                  - name: steps
+                    label: Steps
+                    widget: list
+                    summary: "{{fields.title}}"
+                    fields:
+                      - { name: title, label: Title, widget: string }
+                      - { name: time, label: How long, widget: string, required: false }
+                      - { name: text, label: Text, widget: text, required: false }
+                  - *actions
+              - name: about
+                label: About
+                fields:
+                  - *hidden
+                  - *label
+                  - *nav
+                  - *id
+                  - *heading
+                  - { name: text, label: Text, widget: markdown, required: false }
+                  - *art
+                  - *art_label
+                  - *image
+                  - *facts
+                  - *actions
+              - name: testimonials
+                label: Testimonials
+                summary: "Client quotes"
+                fields:
+                  - *hidden
+                  - *tone
+                  - { name: variant, label: Layout, widget: select, options: [single, grid], default: single }
+                  - *label
+                  - *heading
+                  - name: items
+                    label: Quotes
+                    widget: list
+                    summary: "{{fields.name}}, {{fields.company}}"
+                    fields:
+                      - { name: quote, label: Quote, widget: text }
+                      - { name: name, label: Name, widget: string }
+                      - { name: role, label: Role, widget: string, required: false }
+                      - { name: company, label: Company, widget: string, required: false }
+                      - *image
+              - name: faq
+                label: Questions
+                fields:
+                  - *hidden
+                  - *label
+                  - *nav
+                  - *id
+                  - *heading
+                  - *intro
+                  - { name: open_first, label: Open the first answer, widget: boolean, required: false, default: true }
+                  - name: items
+                    label: Questions
+                    widget: list
+                    summary: "{{fields.q}}"
+                    fields:
+                      - { name: q, label: Question, widget: string }
+                      - { name: a, label: Answer, widget: markdown }
+                  - *actions
+              - name: contact
+                label: Contact
+                fields:
+                  - *hidden
+                  - *label
+                  - *id
+                  - *heading
+                  - *intro
+                  - name: booking
+                    label: Booking link
+                    widget: object
+                    required: false
+                    collapsed: true
+                    fields:
+                      - { name: label, label: Text, widget: string }
+                      - { name: url, label: Link, widget: string }
+                  - { name: budgets, label: Budget choices, widget: list, required: false, hint: Leave empty to hide the budget menu. }
+                  - { name: note, label: Small note under the form, widget: string, required: false }
+
+  - name: settings
+    label: Settings
+    files:
+      - name: site
+        label: Site settings
+        file: _config.yml
+        format: yaml
+        fields:
+          - { name: title, label: Site name, widget: string }
+          - { name: description, label: Site description, widget: text }
+          - name: alcor
+            label: About you
+            widget: object
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: role, label: Role, widget: string }
+              - { name: location, label: Location, widget: string }
+              - { name: email, label: Email, widget: string }
+              - { name: schema_type, label: For search engines, widget: select, options: [Person, ProfessionalService], hint: "Person for one person, ProfessionalService for a studio." }
+              - name: availability
+                label: Availability badge
+                widget: object
+                fields:
+                  - { name: state, label: State, widget: select, options: [available, booked, closed] }
+                  - { name: text, label: Text, widget: string }
+              - name: header_action
+                label: Header button
+                widget: object
+                required: false
+                fields:
+                  - { name: label, label: Text, widget: string }
+                  - { name: url, label: Link, widget: string }
+              - name: social
+                label: Social links
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { name: label, label: Network, widget: string }
+                  - { name: url, label: Link, widget: string }
+                  - { name: handle, label: Handle, widget: string, required: false }
+              - name: form
+                label: Contact form
+                widget: object
+                fields:
+                  - { name: provider, label: Provider, widget: select, options: [demo, web3forms, formspree], hint: demo sends nothing. }
+                  - { name: access_key, label: Web3Forms access key, widget: string, required: false }
+                  - { name: endpoint, label: Formspree endpoint, widget: string, required: false }
+                  - { name: subject, label: Email subject, widget: string, required: false }
+              - name: footer
+                label: Footer
+                widget: object
+                fields:
+                  - { name: text, label: Footer line, widget: string, required: false }
+              - { name: credit, label: Show "Theme by Tortoiz Themes", widget: boolean, default: true }
